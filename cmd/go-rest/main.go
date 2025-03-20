@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/dipenkumarr/go-rest/internal/config"
+	"github.com/dipenkumarr/go-rest/internal/http/handlers/student"
 )
 
 func main() { 
@@ -24,9 +25,7 @@ func main() {
 	// setup router
 	router := http.NewServeMux()
 
-	router.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Welcome to REST-GO"))
-	})
+	router.HandleFunc("POST /api/students", student.New())
 
 	// setup server
 	server := http.Server {
